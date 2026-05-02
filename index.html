@@ -3,24 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trang chủ của Tung Tran</title>
+  <title>Tung Tran | Software Engineer & Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Tung Tran</h1>
-    <p>📚 Dự án cá nhân · NLP · Toán học · Chatbot</p>
-  </header>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Tung Tran.</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <main>
+    <section class="hero">
+      <h1>Hi, I'm Tung Tran</h1>
+      <p>Software Engineer | NLP & Continual Learning Researcher</p>
+      <div class="social-links">
+        <a href="https://github.com/tungtran" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://linkedin.com/in/tungtran" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </section>
+
     <section>
-      <h2>📦 Dự án GitHub</h2>
-      <ul id="repo-list">Đang tải...</ul>
+      <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+      <p>I am a passionate software engineer and researcher with a strong focus on Natural Language Processing (NLP) and Continual Learning. I enjoy solving complex problems, building scalable systems, and writing about my journey in tech.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title"><i class="fas fa-code"></i> Skills</h2>
+      <div class="skills-container">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript / TypeScript</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">Natural Language Processing</span>
+        <span class="skill-tag">Continual Learning</span>
+        <span class="skill-tag">React & Next.js</span>
+        <span class="skill-tag">Git & CI/CD</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024 - Present</div>
+          <div class="timeline-title">AI Researcher</div>
+          <div class="timeline-company">FPT Software</div>
+          <div class="timeline-desc">Researching and implementing state-of-the-art Continual Learning strategies and Large Language Models. Analyzing "Learn or Recall" and "Spurious Forgetting" papers to improve model performance without catastrophic forgetting.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2022 - 2024</div>
+          <div class="timeline-title">Software Engineer</div>
+          <div class="timeline-company">Tech Startup</div>
+          <div class="timeline-desc">Developed and maintained full-stack web applications, built APIs, and optimized databases for high-traffic platforms.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><i class="fas fa-project-diagram"></i> Open Source Projects</h2>
+      <div class="grid" id="repo-list">
+        <!-- Projects will be populated here via script.js -->
+        <p style="color: var(--text-secondary);">Loading projects from GitHub...</p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Tung Tran · <a href="https://github.com/tungtran">GitHub</a></p>
+    <p>&copy; 2025 Tung Tran. Built with pure HTML/CSS/JS.</p>
   </footer>
 
   <script src="script.js"></script>

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "hello-world",
+    "title": "Welcome to my new personal blog",
+    "description": "Why I decided to build my own blog using Vanilla HTML, CSS, and JS instead of complex frameworks.",
+    "date": "May 02, 2026",
+    "tags": ["Web Development", "Personal"]
+  },
+  {
+    "id": "continual-learning",
+    "title": "Understanding Continual Learning in LLMs",
+    "description": "An overview of how we can teach Large Language Models new information without catastrophic forgetting.",
+    "date": "April 24, 2026",
+    "tags": ["AI", "Machine Learning", "Research"]
+  }
+]

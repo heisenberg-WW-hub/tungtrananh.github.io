@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Tung Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Tung Tran.</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Resume</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="margin-bottom: 2rem;">
+      <h1>Writing</h1>
+      <p>Thoughts on AI, Software Engineering, and Continual Learning.</p>
+    </section>
+
+    <section>
+      <div class="grid" id="blog-list" style="display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Blog posts will be loaded here via blog.js -->
+        <p style="color: var(--text-secondary);">Loading posts...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tung Tran. Built with pure HTML/CSS/JS.</p>
+  </footer>
+
+  <script src="blog.js"></script>
+</body>
+</html>

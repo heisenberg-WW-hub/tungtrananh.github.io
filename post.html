@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post | Tung Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Highlight.js for code block styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Tung Tran.</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Resume</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main style="max-width: 800px;">
+    <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    
+    <article id="post-content" class="markdown-content">
+      <div class="post-header" id="post-header">
+        <h1 id="post-title">Loading...</h1>
+        <div class="post-meta" id="post-meta"></div>
+      </div>
+      
+      <div id="markdown-body">
+        <!-- Markdown content will be rendered here -->
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tung Tran. Built with pure HTML/CSS/JS.</p>
+  </footer>
+
+  <!-- Marked.js for markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  
+  <script src="blog.js"></script>
+  <script>
+    // Execute rendering specifically for the post page
+    document.addEventListener("DOMContentLoaded", () => {
+      loadSinglePost();
+    });
+  </script>
+</body>
+</html>
