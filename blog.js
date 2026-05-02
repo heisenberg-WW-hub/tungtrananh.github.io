@@ -11,17 +11,6 @@ if (typeof marked !== 'undefined' && typeof hljs !== 'undefined') {
   });
 }
 
-// Ensure currentLang is available (it's defined in i18n.js)
-if (typeof currentLang === 'undefined') {
-  window.currentLang = localStorage.getItem('site_lang') || 'en';
-}
-
-// Handle dynamic re-rendering on language change
-document.addEventListener('languageChanged', (e) => {
-  window.currentLang = e.detail.lang;
-  loadBlogList(); // Re-render the blog list if we're on blog.html
-});
-
 // Function to load the list of posts in blog.html
 async function loadBlogList() {
   const blogList = document.getElementById("blog-list");
@@ -35,7 +24,7 @@ async function loadBlogList() {
     blogList.innerHTML = "";
     
     if (posts.length === 0) {
-      blogList.innerHTML = `<p data-i18n="no_posts">${typeof translations !== 'undefined' ? translations['no_posts'][currentLang] : 'No posts available yet.'}</p>`;
+      blogList.innerHTML = "<p>Chưa có bài viết nào.</p>";
       return;
     }
 
@@ -46,27 +35,23 @@ async function loadBlogList() {
       card.style.justifyContent = "space-between";
       card.style.alignItems = "center";
       
-      const title = post.title[currentLang] || post.title['en'] || post.title;
-      const desc = post.description[currentLang] || post.description['en'] || post.description;
-      const readText = typeof translations !== 'undefined' ? translations['read_btn'][currentLang] : 'Read';
-      
       card.innerHTML = `
         <div style="flex: 1;">
           <div class="card-title" style="margin-bottom: 0.2rem;">
-            <a href="post.html?id=${post.id}">${title}</a>
+            <a href="post.html?id=${post.id}">${post.title}</a>
           </div>
-          <p class="card-desc" style="margin-bottom: 0.5rem;">${desc}</p>
+          <p class="card-desc" style="margin-bottom: 0.5rem;">${post.description}</p>
           <div style="font-size: 0.85rem; color: var(--text-secondary);">
             <i class="far fa-calendar-alt"></i> ${post.date} &nbsp;|&nbsp; 
             <i class="fas fa-tags"></i> ${post.tags.join(', ')}
           </div>
         </div>
-        <a href="post.html?id=${post.id}" style="padding: 0.5rem 1rem; background: var(--surface-hover); border-radius: 6px; border: 1px solid var(--border-color); color: var(--text-primary);">${readText} <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+        <a href="post.html?id=${post.id}" style="padding: 0.5rem 1rem; background: var(--surface-hover); border-radius: 6px; border: 1px solid var(--border-color); color: var(--text-primary);">Đọc <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
       `;
       blogList.appendChild(card);
     });
   } catch (error) {
-    blogList.innerHTML = `<p style="color: #ff7b72;">Error loading posts: ${error.message}</p>`;
+    blogList.innerHTML = `<p style="color: #ff7b72;">Lỗi tải bài viết: ${error.message}</p>`;
   }
 }
 
@@ -82,7 +67,7 @@ async function loadSinglePost() {
   if (!postHeader || !postTitle || !markdownBody) return;
   
   if (!postId) {
-    postHeader.innerHTML = `<h1 data-i18n="post_not_found">${typeof translations !== 'undefined' ? translations['post_not_found'][currentLang] : 'Post not found'}</h1>`;
+    postHeader.innerHTML = "<h1>Không tìm thấy bài viết</h1>";
     return;
   }
 
@@ -93,27 +78,20 @@ async function loadSinglePost() {
     const postMeta = posts.find(p => p.id === postId);
     
     if (postMeta) {
-      const title = postMeta.title[currentLang] || postMeta.title['en'] || postMeta.title;
-      document.title = `${title} | Tung Tran`;
-      postTitle.innerText = title;
-      postTitle.removeAttribute("data-i18n"); // Remove loading i18n attribute
+      document.title = `${postMeta.title} | Tùng Trần`;
+      postTitle.innerText = postMeta.title;
       document.getElementById("post-meta").innerHTML = `
         <i class="far fa-calendar-alt"></i> ${postMeta.date} &nbsp; | &nbsp; 
         <i class="fas fa-tags"></i> ${postMeta.tags.join(', ')}
       `;
     } else {
-      postTitle.innerText = "Post Document";
+      postTitle.innerText = "Bài viết";
     }
 
-    // 2. Fetch markdown content based on language
-    let contentResponse = await fetch(`content/${postId}.${currentLang}.md`);
+    // 2. Fetch markdown content
+    const contentResponse = await fetch(`content/${postId}.md`);
     
-    // Fallback to English if Vietnamese (or other) file is missing
-    if (!contentResponse.ok && currentLang !== 'en') {
-        contentResponse = await fetch(`content/${postId}.en.md`);
-    }
-    
-    if (!contentResponse.ok) throw new Error('Markdown file not found');
+    if (!contentResponse.ok) throw new Error('Không tìm thấy file Markdown');
     
     const markdownContent = await contentResponse.text();
     
@@ -122,7 +100,7 @@ async function loadSinglePost() {
     markdownBody.innerHTML = htmlContent;
     
   } catch (error) {
-    postHeader.innerHTML = `<h1>${typeof translations !== 'undefined' ? translations['post_error'][currentLang] : 'Error Loading Post'}</h1>`;
+    postHeader.innerHTML = `<h1>Lỗi tải bài viết</h1>`;
     markdownBody.innerHTML = `<p style="color: #ff7b72;">${error.message}</p>`;
   }
 }
