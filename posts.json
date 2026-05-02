@@ -1,15 +1,27 @@
 [
   {
     "id": "hello-world",
-    "title": "Welcome to my new personal blog",
-    "description": "Why I decided to build my own blog using Vanilla HTML, CSS, and JS instead of complex frameworks.",
+    "title": {
+      "en": "Why I Built My Own Blog From Scratch",
+      "vi": "Tại sao tôi tự xây dựng Blog từ đầu"
+    },
+    "description": {
+      "en": "Why I decided to build my own blog using Vanilla HTML, CSS, and JS instead of complex frameworks.",
+      "vi": "Tại sao tôi quyết định tự viết blog bằng HTML, CSS và JS thuần thay vì các framework phức tạp."
+    },
     "date": "May 02, 2026",
     "tags": ["Web Development", "Personal"]
   },
   {
     "id": "continual-learning",
-    "title": "Understanding Continual Learning in LLMs",
-    "description": "An overview of how we can teach Large Language Models new information without catastrophic forgetting.",
+    "title": {
+      "en": "Understanding Continual Learning in LLMs",
+      "vi": "Tìm hiểu Học Liên Tục (Continual Learning) trong LLM"
+    },
+    "description": {
+      "en": "An overview of how we can teach Large Language Models new information without catastrophic forgetting.",
+      "vi": "Tổng quan về cách chúng ta có thể dạy Mô hình Ngôn ngữ Lớn kiến thức mới mà không bị hiện tượng quên thảm họa (catastrophic forgetting)."
+    },
     "date": "April 24, 2026",
     "tags": ["AI", "Machine Learning", "Research"]
   }

@@ -11,6 +11,17 @@ if (typeof marked !== 'undefined' && typeof hljs !== 'undefined') {
   });
 }
 
+// Ensure currentLang is available (it's defined in i18n.js)
+if (typeof currentLang === 'undefined') {
+  window.currentLang = localStorage.getItem('site_lang') || 'en';
+}
+
+// Handle dynamic re-rendering on language change
+document.addEventListener('languageChanged', (e) => {
+  window.currentLang = e.detail.lang;
+  loadBlogList(); // Re-render the blog list if we're on blog.html
+});
+
 // Function to load the list of posts in blog.html
 async function loadBlogList() {
   const blogList = document.getElementById("blog-list");
@@ -24,7 +35,7 @@ async function loadBlogList() {
     blogList.innerHTML = "";
     
     if (posts.length === 0) {
-      blogList.innerHTML = "<p>No posts available yet.</p>";
+      blogList.innerHTML = `<p data-i18n="no_posts">${typeof translations !== 'undefined' ? translations['no_posts'][currentLang] : 'No posts available yet.'}</p>`;
       return;
     }
 
@@ -35,18 +46,22 @@ async function loadBlogList() {
       card.style.justifyContent = "space-between";
       card.style.alignItems = "center";
       
+      const title = post.title[currentLang] || post.title['en'] || post.title;
+      const desc = post.description[currentLang] || post.description['en'] || post.description;
+      const readText = typeof translations !== 'undefined' ? translations['read_btn'][currentLang] : 'Read';
+      
       card.innerHTML = `
         <div style="flex: 1;">
           <div class="card-title" style="margin-bottom: 0.2rem;">
-            <a href="post.html?id=${post.id}">${post.title}</a>
+            <a href="post.html?id=${post.id}">${title}</a>
           </div>
-          <p class="card-desc" style="margin-bottom: 0.5rem;">${post.description}</p>
+          <p class="card-desc" style="margin-bottom: 0.5rem;">${desc}</p>
           <div style="font-size: 0.85rem; color: var(--text-secondary);">
             <i class="far fa-calendar-alt"></i> ${post.date} &nbsp;|&nbsp; 
             <i class="fas fa-tags"></i> ${post.tags.join(', ')}
           </div>
         </div>
-        <a href="post.html?id=${post.id}" style="padding: 0.5rem 1rem; background: var(--surface-hover); border-radius: 6px; border: 1px solid var(--border-color); color: var(--text-primary);">Read <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+        <a href="post.html?id=${post.id}" style="padding: 0.5rem 1rem; background: var(--surface-hover); border-radius: 6px; border: 1px solid var(--border-color); color: var(--text-primary);">${readText} <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
       `;
       blogList.appendChild(card);
     });
@@ -60,8 +75,14 @@ async function loadSinglePost() {
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get('id');
   
+  const postHeader = document.getElementById("post-header");
+  const postTitle = document.getElementById("post-title");
+  const markdownBody = document.getElementById("markdown-body");
+  
+  if (!postHeader || !postTitle || !markdownBody) return;
+  
   if (!postId) {
-    document.getElementById("post-header").innerHTML = "<h1>Post not found</h1>";
+    postHeader.innerHTML = `<h1 data-i18n="post_not_found">${typeof translations !== 'undefined' ? translations['post_not_found'][currentLang] : 'Post not found'}</h1>`;
     return;
   }
 
@@ -72,33 +93,43 @@ async function loadSinglePost() {
     const postMeta = posts.find(p => p.id === postId);
     
     if (postMeta) {
-      document.title = `${postMeta.title} | Tung Tran`;
-      document.getElementById("post-title").innerText = postMeta.title;
+      const title = postMeta.title[currentLang] || postMeta.title['en'] || postMeta.title;
+      document.title = `${title} | Tung Tran`;
+      postTitle.innerText = title;
+      postTitle.removeAttribute("data-i18n"); // Remove loading i18n attribute
       document.getElementById("post-meta").innerHTML = `
         <i class="far fa-calendar-alt"></i> ${postMeta.date} &nbsp; | &nbsp; 
         <i class="fas fa-tags"></i> ${postMeta.tags.join(', ')}
       `;
     } else {
-      document.getElementById("post-title").innerText = "Post Document";
+      postTitle.innerText = "Post Document";
     }
 
-    // 2. Fetch markdown content
-    const contentResponse = await fetch(`content/${postId}.md`);
+    // 2. Fetch markdown content based on language
+    let contentResponse = await fetch(`content/${postId}.${currentLang}.md`);
+    
+    // Fallback to English if Vietnamese (or other) file is missing
+    if (!contentResponse.ok && currentLang !== 'en') {
+        contentResponse = await fetch(`content/${postId}.en.md`);
+    }
+    
     if (!contentResponse.ok) throw new Error('Markdown file not found');
     
     const markdownContent = await contentResponse.text();
     
     // 3. Render markdown
     const htmlContent = marked.parse(markdownContent);
-    document.getElementById("markdown-body").innerHTML = htmlContent;
+    markdownBody.innerHTML = htmlContent;
     
   } catch (error) {
-    document.getElementById("post-header").innerHTML = `<h1>Error Loading Post</h1>`;
-    document.getElementById("markdown-body").innerHTML = `<p style="color: #ff7b72;">${error.message}</p>`;
+    postHeader.innerHTML = `<h1>${typeof translations !== 'undefined' ? translations['post_error'][currentLang] : 'Error Loading Post'}</h1>`;
+    markdownBody.innerHTML = `<p style="color: #ff7b72;">${error.message}</p>`;
   }
 }
 
 // Initialize blog list if on blog.html
 document.addEventListener("DOMContentLoaded", () => {
-  loadBlogList();
+  if (document.getElementById("blog-list")) {
+    loadBlogList();
+  }
 });
