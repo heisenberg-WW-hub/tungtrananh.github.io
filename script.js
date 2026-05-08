@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Lấy danh sách repo GitHub của bạn
   // Thay 'tungtran' bằng username thật của bạn
-  const githubUsername = "tungtran";
+  const githubUsername = "heisenberg-WW-hub";
 
   fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`)
     .then(response => {
