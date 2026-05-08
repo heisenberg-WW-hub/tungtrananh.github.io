@@ -14,7 +14,7 @@
 
   <nav class="navbar">
     <div class="nav-content">
-      <a href="index.html" class="nav-logo">Tùng Trần.</a>
+      <a href="index.html" class="nav-logo">Tùng Trần Anh</a>
       <ul class="nav-links" style="display: flex; align-items: center;">
         <li><a href="index.html" class="active">Hồ sơ</a></li>
         <li><a href="blog.html">Bài viết</a></li>
@@ -23,13 +23,21 @@
   </nav>
 
   <main>
-    <section class="hero">
-      <h1>Xin chào, tôi là Tùng Trần</h1>
-      <p>Kỹ sư phần mềm | Nghiên cứu sinh NLP & Continual Learning</p>
-      <div class="social-links">
-        <a href="https://github.com/tungtran" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://linkedin.com/in/tungtran" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <section class="hero"
+      style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap-reverse; gap: 2rem;">
+      <div style="flex: 1; min-width: 300px;">
+        <h1>Xin chào, tôi là Tùng</h1>
+        <p>Sinh viên năm cuối ngành Toán - Tin | Đại học Bách khoa Hà Nội</p>
+        <div class="social-links">
+          <a href="https://github.com/heisenberg-WW-hub" target="_blank"><i class="fab fa-github"></i>
+            heisenberg-WW-hub</a>
+          <a href="mailto:trantung11062004@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+          <a href="tel:+84778511416"><i class="fas fa-phone"></i> 0778511416</a>
+        </div>
+      </div>
+      <div class="hero-avatar" style="text-align: center;">
+        <img src="assets/avatar.jpg" alt="Trần Anh Tùng"
+          style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-color); box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
       </div>
     </section>
 
@@ -42,7 +50,7 @@
 
     <section>
       <h2 class="section-title"><i class="fas fa-code"></i> Kỹ Năng</h2>
-      
+
       <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Ngôn ngữ</h3>
       <div class="skills-container" style="margin-bottom: 1.5rem;">
         <span class="skill-tag">Python</span>
@@ -51,7 +59,7 @@
         <span class="skill-tag">SQL</span>
         <span class="skill-tag">NoSQL (MongoDB)</span>
       </div>
-      
+
       <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Công nghệ & Frameworks</h3>
       <div class="skills-container" style="margin-bottom: 1.5rem;">
         <span class="skill-tag">PyTorch</span>
@@ -64,7 +72,7 @@
         <span class="skill-tag">Hugging Face</span>
         <span class="skill-tag">Streamlit</span>
       </div>
-      
+
       <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Kiến thức</h3>
       <div class="skills-container">
         <span class="skill-tag">Deep Learning</span>
@@ -82,32 +90,46 @@
       <h2 class="section-title"><i class="fas fa-briefcase"></i> Dự Án Nổi Bật</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-title"><a href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module1/week-4/chat_bot/" target="_blank" style="color: var(--accent-color); text-decoration: none;">RAG Chatbot cho tài liệu học tập</a></div>
+          <div class="timeline-title"><a
+              href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module1/week-4/chat_bot/" target="_blank"
+              style="color: var(--accent-color); text-decoration: none;">RAG Chatbot cho tài liệu học tập</a></div>
           <div class="timeline-desc">
             <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
-              <li style="margin-bottom: 6px;">Xây dựng chatbot hỏi–đáp sử dụng kỹ thuật Retrieval-Augmented Generation (RAG) hỗ trợ trả lời câu hỏi dựa trên tài liệu môn học.</li>
-              <li style="margin-bottom: 6px;">Triển khai trích xuất dữ liệu từ PDF và lưu trữ embedding trong FAISS để truy xuất nhanh.</li>
+              <li style="margin-bottom: 6px;">Xây dựng chatbot hỏi–đáp sử dụng kỹ thuật Retrieval-Augmented Generation
+                (RAG) hỗ trợ trả lời câu hỏi dựa trên tài liệu môn học.</li>
+              <li style="margin-bottom: 6px;">Triển khai trích xuất dữ liệu từ PDF và lưu trữ embedding trong FAISS để
+                truy xuất nhanh.</li>
               <li>Công cụ sử dụng: Python, LangChain, FAISS, OpenAI/Ollama.</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-title"><a href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module2/week-4/spam_ham_classifier/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Hệ thống Phân loại tin nhắn Spam/Ham</a></div>
+          <div class="timeline-title"><a
+              href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module2/week-4/spam_ham_classifier/"
+              target="_blank" style="color: var(--accent-color); text-decoration: none;">Hệ thống Phân loại tin nhắn
+              Spam/Ham</a></div>
           <div class="timeline-desc">
             <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
-              <li style="margin-bottom: 6px;">Phát triển mô hình phân loại tin nhắn SMS thành spam hoặc ham kết hợp Naive Bayes với BERT để tối ưu độ chính xác.</li>
-              <li style="margin-bottom: 6px;">Tối ưu tốc độ xử lý bằng vector hóa thủ công và tìm kiếm lân cận gần nhất với FAISS.</li>
+              <li style="margin-bottom: 6px;">Phát triển mô hình phân loại tin nhắn SMS thành spam hoặc ham kết hợp
+                Naive Bayes với BERT để tối ưu độ chính xác.</li>
+              <li style="margin-bottom: 6px;">Tối ưu tốc độ xử lý bằng vector hóa thủ công và tìm kiếm lân cận gần nhất
+                với FAISS.</li>
               <li>Công cụ sử dụng: Python, Pandas, NumPy, Hugging Face Transformers.</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-title"><a href="https://github.com/heisenberg-WW-hub/image-captioning-app" target="_blank" style="color: var(--accent-color); text-decoration: none;">Ứng dụng Sinh mô tả ảnh và So sánh mô hình AI</a></div>
+          <div class="timeline-title"><a href="https://github.com/heisenberg-WW-hub/image-captioning-app"
+              target="_blank" style="color: var(--accent-color); text-decoration: none;">Ứng dụng Sinh mô tả ảnh và So
+              sánh mô hình AI</a></div>
           <div class="timeline-desc">
             <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
-              <li style="margin-bottom: 6px;">Xây dựng ứng dụng so sánh hiệu năng giữa các kiến trúc Deep Learning: ViT-GPT2, BLIP-Large và Microsoft GIT trên cùng một giao diện.</li>
-              <li style="margin-bottom: 6px;">Triển khai các chiến lược lấy mẫu (Sampling strategies) như Beam Search, Top-K/Top-P để điều chỉnh độ sáng tạo của nội dung.</li>
-              <li style="margin-bottom: 6px;">Tích hợp xử lý đa phương thức (Multimodal): hỗ trợ đầu vào từ tệp tin, URL và Webcam trực tiếp kết hợp dịch tự động.</li>
+              <li style="margin-bottom: 6px;">Xây dựng ứng dụng so sánh hiệu năng giữa các kiến trúc Deep Learning:
+                ViT-GPT2, BLIP-Large và Microsoft GIT trên cùng một giao diện.</li>
+              <li style="margin-bottom: 6px;">Triển khai các chiến lược lấy mẫu (Sampling strategies) như Beam Search,
+                Top-K/Top-P để điều chỉnh độ sáng tạo của nội dung.</li>
+              <li style="margin-bottom: 6px;">Tích hợp xử lý đa phương thức (Multimodal): hỗ trợ đầu vào từ tệp tin, URL
+                và Webcam trực tiếp kết hợp dịch tự động.</li>
               <li>Công cụ sử dụng: PyTorch, Hugging Face, Streamlit, CUDA.</li>
             </ul>
           </div>
@@ -123,9 +145,9 @@
     </section>
   </main>
 
-  <footer>
+  <!-- <footer>
     <p>&copy; 2025 Tùng Trần. Được xây dựng thuần bằng HTML/CSS/JS.</p>
-  </footer>
+  </footer> -->
 
   <script src="script.js?v=4"></script>
 </body>
