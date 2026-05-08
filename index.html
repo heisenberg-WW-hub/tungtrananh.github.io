@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tùng Trần | Kỹ Sư Phần Mềm & Nghiên Cứu Sinh</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -33,44 +35,89 @@
 
     <section>
       <h2 class="section-title"><i class="fas fa-user"></i> Về Bản Thân</h2>
-      <p>Tôi là một kỹ sư phần mềm và nhà nghiên cứu đam mê AI, đặc biệt tập trung vào Xử lý Ngôn ngữ Tự nhiên (NLP) và Học liên tục (Continual Learning). Tôi thích giải quyết các bài toán khó, xây dựng hệ thống mở rộng và viết blog chia sẻ về hành trình công nghệ của mình.</p>
+      <p>Tôi là một kỹ sư phần mềm và nhà nghiên cứu đam mê AI, đặc biệt tập trung vào Xử lý Ngôn ngữ Tự nhiên (NLP) và
+        Học liên tục (Continual Learning). Tôi thích giải quyết các bài toán khó, xây dựng hệ thống mở rộng và viết blog
+        chia sẻ về hành trình công nghệ của mình.</p>
     </section>
 
     <section>
       <h2 class="section-title"><i class="fas fa-code"></i> Kỹ Năng</h2>
-      <div class="skills-container">
+      
+      <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Ngôn ngữ</h3>
+      <div class="skills-container" style="margin-bottom: 1.5rem;">
         <span class="skill-tag">Python</span>
-        <span class="skill-tag">JavaScript / TypeScript</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">NoSQL (MongoDB)</span>
+      </div>
+      
+      <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Công nghệ & Frameworks</h3>
+      <div class="skills-container" style="margin-bottom: 1.5rem;">
         <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">Xử Lý Ngôn Ngữ Tự Nhiên (NLP)</span>
-        <span class="skill-tag">Học Liên Tục (Continual Learning)</span>
-        <span class="skill-tag">React & Next.js</span>
-        <span class="skill-tag">Git & CI/CD</span>
+        <span class="skill-tag">Scikit-Learn</span>
+        <span class="skill-tag">XGBoost</span>
+        <span class="skill-tag">statsmodels</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">FAISS</span>
+        <span class="skill-tag">Hugging Face</span>
+        <span class="skill-tag">Streamlit</span>
+      </div>
+      
+      <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: #fff;">Kiến thức</h3>
+      <div class="skills-container">
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">Time Series Analysis</span>
+        <span class="skill-tag">Ensemble Methods</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">Data Structures & Algorithms</span>
+        <span class="skill-tag">Optimization Algorithms</span>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title"><i class="fas fa-briefcase"></i> Kinh Nghiệm</h2>
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Dự Án Nổi Bật</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2024 - Hiện tại</div>
-          <div class="timeline-title">Nghiên cứu viên AI</div>
-          <div class="timeline-company">FPT Software</div>
-          <div class="timeline-desc">Nghiên cứu và triển khai các chiến lược Học liên tục (Continual Learning) và Mô hình ngôn ngữ lớn (LLM). Phân tích các bài báo "Learn or Recall" và "Spurious Forgetting" để cải thiện mô hình mà không bị quên kiến thức cũ.</div>
+          <div class="timeline-title"><a href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module1/week-4/chat_bot/" target="_blank" style="color: var(--accent-color); text-decoration: none;">RAG Chatbot cho tài liệu học tập</a></div>
+          <div class="timeline-desc">
+            <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
+              <li style="margin-bottom: 6px;">Xây dựng chatbot hỏi–đáp sử dụng kỹ thuật Retrieval-Augmented Generation (RAG) hỗ trợ trả lời câu hỏi dựa trên tài liệu môn học.</li>
+              <li style="margin-bottom: 6px;">Triển khai trích xuất dữ liệu từ PDF và lưu trữ embedding trong FAISS để truy xuất nhanh.</li>
+              <li>Công cụ sử dụng: Python, LangChain, FAISS, OpenAI/Ollama.</li>
+            </ul>
+          </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">2022 - 2024</div>
-          <div class="timeline-title">Kỹ sư phần mềm</div>
-          <div class="timeline-company">Tech Startup</div>
-          <div class="timeline-desc">Phát triển và bảo trì các ứng dụng web full-stack, xây dựng API và tối ưu hóa cơ sở dữ liệu cho các hệ thống có lượng truy cập cao.</div>
+          <div class="timeline-title"><a href="https://jennifer1907.github.io/Time-Series-Team-Hub/posts/module2/week-4/spam_ham_classifier/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Hệ thống Phân loại tin nhắn Spam/Ham</a></div>
+          <div class="timeline-desc">
+            <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
+              <li style="margin-bottom: 6px;">Phát triển mô hình phân loại tin nhắn SMS thành spam hoặc ham kết hợp Naive Bayes với BERT để tối ưu độ chính xác.</li>
+              <li style="margin-bottom: 6px;">Tối ưu tốc độ xử lý bằng vector hóa thủ công và tìm kiếm lân cận gần nhất với FAISS.</li>
+              <li>Công cụ sử dụng: Python, Pandas, NumPy, Hugging Face Transformers.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title"><a href="https://github.com/heisenberg-WW-hub/image-captioning-app" target="_blank" style="color: var(--accent-color); text-decoration: none;">Ứng dụng Sinh mô tả ảnh và So sánh mô hình AI</a></div>
+          <div class="timeline-desc">
+            <ul style="margin-top: 8px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc;">
+              <li style="margin-bottom: 6px;">Xây dựng ứng dụng so sánh hiệu năng giữa các kiến trúc Deep Learning: ViT-GPT2, BLIP-Large và Microsoft GIT trên cùng một giao diện.</li>
+              <li style="margin-bottom: 6px;">Triển khai các chiến lược lấy mẫu (Sampling strategies) như Beam Search, Top-K/Top-P để điều chỉnh độ sáng tạo của nội dung.</li>
+              <li style="margin-bottom: 6px;">Tích hợp xử lý đa phương thức (Multimodal): hỗ trợ đầu vào từ tệp tin, URL và Webcam trực tiếp kết hợp dịch tự động.</li>
+              <li>Công cụ sử dụng: PyTorch, Hugging Face, Streamlit, CUDA.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title"><i class="fas fa-project-diagram"></i> Dự Án Mã Nguồn Mở</h2>
+      <h2 class="section-title"><i class="fab fa-github"></i> Dự Án Mã Nguồn Mở Khác</h2>
       <div class="grid" id="repo-list">
-        <!-- Projects will be populated here via script.js -->
         <p style="color: var(--text-secondary);">Đang tải các dự án từ GitHub...</p>
       </div>
     </section>
@@ -82,4 +129,5 @@
 
   <script src="script.js?v=4"></script>
 </body>
+
 </html>

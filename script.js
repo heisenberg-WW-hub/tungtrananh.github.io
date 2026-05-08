@@ -1,13 +1,13 @@
 // script.js - Fetching GitHub repositories
 document.addEventListener("DOMContentLoaded", () => {
   const repoList = document.getElementById("repo-list");
-  
+
   if (!repoList) return; // Only run on pages that have the repo-list element
 
   // Lấy danh sách repo GitHub của bạn
   // Thay 'tungtran' bằng username thật của bạn
   const githubUsername = "tungtran";
-  
+
   fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=6`)
     .then(response => {
       if (!response.ok) {
@@ -17,25 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(data => {
       repoList.innerHTML = "";
-      
+
       if (data.length === 0) {
         repoList.innerHTML = "<p>No public repositories found.</p>";
         return;
       }
-      
+
       data.forEach(repo => {
         // Skip forks if you only want to show original projects
-        if(repo.fork) return;
-        
+        if (repo.fork) return;
+
         const card = document.createElement("div");
         card.className = "card";
-        
+
         // Define language color roughly
-        const langColor = repo.language === 'JavaScript' ? '#f1e05a' : 
-                          repo.language === 'Python' ? '#3572A5' : 
-                          repo.language === 'TypeScript' ? '#3178c6' : 
-                          repo.language === 'HTML' ? '#e34c26' : '#8b949e';
-                          
+        const langColor = repo.language === 'JavaScript' ? '#f1e05a' :
+          repo.language === 'Python' ? '#3572A5' :
+            repo.language === 'TypeScript' ? '#3178c6' :
+              repo.language === 'HTML' ? '#e34c26' : '#8b949e';
+
         card.innerHTML = `
           <div class="card-title">
             <i class="fas fa-book"></i>
